@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-Time Chat</title>
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="chat-container">
+        <h2>Real-Time Chat</h2>
+
+        <!-- User Login -->
+        <div class="user-input">
+            <input type="text" id="username" placeholder="Enter your name">
+            <button onclick="registerUser('customer')">Join as Customer</button>
+            <button onclick="registerUser('agency')">Join as Agency</button>
+        </div>
+
+        <!-- Chat Box -->
+        <div id="chat-box" class="hidden">
+            <div id="messages" class="messages"></div>
+            <input type="text" id="message" placeholder="Type a message..." onkeypress="handleKeyPress(event)">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+
+        <!-- Reply Box (For Agencies Only) -->
+        <div id="reply-box" class="hidden">
+            <input type="text" id="customer-id" placeholder="Customer Socket ID">
+            <input type="text" id="agency-reply" placeholder="Reply message">
+            <button onclick="sendAgencyReply()">Reply</button>
+        </div>
+
+        <div id="user-list"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
